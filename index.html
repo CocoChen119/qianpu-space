@@ -333,6 +333,25 @@ h2.section-title {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+/* 确保页面初始加载时不会有意外的滚动 */
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 防止内容溢出导致的滚动问题 */
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* 确保所有section都有正确的定位 */
+section {
+  scroll-margin-top: 4rem;
+  position: relative;
+}
 </style>
 </head>
 <body class="bg-black min-h-screen text-[#8B0000]">
@@ -851,17 +870,46 @@ revealCards(); // Initial check
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function (e) {
 e.preventDefault();
-document.querySelector(this.getAttribute('href')).scrollIntoView({
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
 behavior: 'smooth'
 });
+}
 });
 });
 
-// 页面加载完成后滚动到顶部
-window.addEventListener('load', () => {
+// 防止页面自动滚动到底部
+document.addEventListener('DOMContentLoaded', function() {
+  // 强制滚动到顶部
+  window.scrollTo(0, 0);
+  
+  // 禁用任何可能的自动滚动
+  history.scrollRestoration = 'manual';
+});
+
+// 如果还有问题，可以多次尝试滚动到顶部
+window.addEventListener('load', function() {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 0);
+  
   setTimeout(() => {
     window.scrollTo(0, 0);
   }, 100);
+});
+
+// 确保锚点链接不会导致意外滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
 });
 
 // 调整卡片高度
