@@ -173,6 +173,27 @@ color: var(--card-color);
 #skills .card-front {
   overflow: visible;
 }
+
+/* 为 AI & ML 卡片添加特殊高度 */
+#skills .card.md\:col-span-2 {
+  min-height: 400px; /* 增加高度从 300px 到 400px */
+}
+
+/* Skills 部分的内容卡片不需要滚动 */
+#skills .card-front {
+  overflow: visible;
+}
+
+/* 为 AI & ML 卡片添加更大的内部间距 */
+#skills .card.md\:col-span-2 .card-front {
+  padding: 2rem; /* 增加内部间距 */
+}
+
+/* 增加 AI & ML 卡片内部各部分的间距 */
+#skills .card.md\:col-span-2 .space-y-4 {
+  margin-top: 1.5rem;
+  gap: 2rem;
+}
 </style>
 </head>
 <body class="bg-black min-h-screen text-[#8B0000]">
@@ -188,6 +209,7 @@ color: var(--card-color);
 <a href="#experience" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Experience</a>
 <a href="#honors" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Honors & Awards</a>
 <a href="#skills" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Skills</a>
+<a href="#interests" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Interests</a>
 <a href="#contact" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Contact</a>
 </div>
 </div>
@@ -379,7 +401,7 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 </section>
 <section id="skills" class="py-32 relative z-10 bg-black">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-500 mb-12 text-center">Skills</h2>
+<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-600 mb-12 text-center">Skills</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
 <div class="card">
@@ -434,7 +456,7 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 </div>
 </div>
 
-<div class="card">
+<div class="card md:col-span-2">
 <div class="card-front p-6">
 <div class="flex items-center mb-6">
 <i class="ri-brain-line text-2xl text-red-500 mr-3"></i>
@@ -446,22 +468,65 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <i class="ri-cpu-line mr-2"></i>Deep Learning
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">PyTorch</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">TensorFlow</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">CNNs</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">RNNs</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Transformers</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Computer Vision</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Natural Language Processing</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Neural Architecture Design</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Deep Generative Models</span>
 </div>
 </div>
 <div>
 <h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
-<i class="ri-translate-2 mr-2"></i>NLP
+<i class="ri-robot-line mr-2"></i>Advanced AI
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">BERT</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">GPT</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Reinforcement Learning</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Evolutionary Computation</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Multi-Agent Systems</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Meta Learning</span>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-tools-line mr-2"></i>Frameworks & Tools
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">PyTorch</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">TensorFlow</span>
 <span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Hugging Face</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">spaCy</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">MLflow</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-6">
+<i class="ri-book-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold text-red-500">Theoretical Computer Science</h3>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-functions-line mr-2"></i>Theory & Algorithms
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Algorithm Analysis</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Complexity Theory</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Graph Theory</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Automata Theory</span>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-code-box-line mr-2"></i>Advanced Concepts
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Formal Languages</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Computability</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Optimization Theory</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Information Theory</span>
 </div>
 </div>
 </div>
@@ -472,28 +537,27 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <div class="card-front p-6">
 <div class="flex items-center mb-6">
 <i class="ri-gamepad-line text-2xl text-red-500 mr-3"></i>
-<h3 class="text-xl font-semibold text-red-500">Game Development & Advanced Computing</h3>
+<h3 class="text-xl font-semibold text-red-500">Game Development</h3>
 </div>
 <div class="space-y-4">
 <div>
 <h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
-<i class="ri-game-line mr-2"></i>Game Development
+<i class="ri-game-line mr-2"></i>Engines & Tools
 </h4>
 <div class="flex flex-wrap gap-2">
 <span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Unity</span>
 <span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Unreal Engine</span>
 <span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Godot</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Game AI</span>
 </div>
 </div>
 <div>
 <h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
-<i class="ri-atom-line mr-2"></i>Quantum Computing
+<i class="ri-sword-line mr-2"></i>Game AI
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Qiskit</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Cirq</span>
-<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Quantum Algorithms</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Pathfinding</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Behavior Trees</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Decision Making</span>
 </div>
 </div>
 </div>
@@ -637,4 +701,5 @@ behavior: 'smooth'
 });
 </script>
 </body>
-</html></html>
+</html>
+
