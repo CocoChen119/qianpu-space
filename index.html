@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=UnifrakturMaguntia&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
@@ -194,6 +194,94 @@ color: var(--card-color);
   margin-top: 1.5rem;
   gap: 2rem;
 }
+
+/* 移动端样式调整 */
+@media (max-width: 768px) {
+  /* 调整标题大小 */
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  /* 调整卡片布局 */
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .card-front {
+    padding: 1rem !important;
+  }
+
+  /* 调整技能标签大小 */
+  .px-3.py-1 {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  /* 调整间距 */
+  .space-x-8 {
+    gap: 1rem;
+  }
+
+  .gap-8 {
+    gap: 1rem;
+  }
+
+  /* 调整个人资料卡片大小 */
+  .profile-card {
+    width: 280px !important;
+    height: 380px !important;
+  }
+
+  /* 确保 AI & ML 卡片在移动端正常显示 */
+  #skills .card.md\:col-span-2 {
+    min-height: auto;
+  }
+}
+
+/* 确保内容不会被固定导航栏遮挡 */
+section {
+  scroll-margin-top: 4rem;
+}
+
+/* 更新字体样式 */
+h1 {
+  font-family: 'UnifrakturMaguntia', serif; /* 保持最顶部的名字用 UnifrakturMaguntia */
+}
+
+/* 所有章节标题使用 Cinzel */
+h2.section-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* 卡片标题使用 Cinzel */
+.card-front h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* 导航菜单也使用 Cinzel */
+.nav-link {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+}
+
+/* 移动端调整 */
+@media (max-width: 768px) {
+  .card-front h3 {
+    font-size: 1.1rem; /* 移动端稍微调小字号以适应屏幕 */
+  }
+  
+  h2.section-title {
+    font-size: 1.75rem;
+  }
+}
 </style>
 </head>
 <body class="bg-black min-h-screen text-[#8B0000]">
@@ -204,7 +292,14 @@ color: var(--card-color);
 <div class="flex items-center">
 <a href="#home" class="text-2xl font-['UnifrakturMaguntia'] text-primary">QC</a>
 </div>
-<div class="flex items-center space-x-8">
+<!-- 移动端菜单按钮 -->
+<div class="md:hidden flex items-center">
+<button id="mobile-menu-button" class="text-gray-300 hover:text-red-500">
+<i class="ri-menu-line text-2xl"></i>
+</button>
+</div>
+<!-- 桌面端导航 -->
+<div class="hidden md:flex items-center space-x-8">
 <a href="#academic" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Academic</a>
 <a href="#experience" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Experience</a>
 <a href="#honors" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Honors & Awards</a>
@@ -215,6 +310,17 @@ color: var(--card-color);
 </div>
 </div>
 </nav>
+<!-- 移动端菜单 -->
+<div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-sm">
+<div class="px-4 pt-2 pb-3 space-y-2">
+<a href="#academic" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Academic</a>
+<a href="#experience" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Experience</a>
+<a href="#honors" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Honors & Awards</a>
+<a href="#skills" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Skills</a>
+<a href="#interests" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Interests</a>
+<a href="#contact" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Contact</a>
+</div>
+</div>
 <main>
 <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
 <div class="text-center z-10">
@@ -698,6 +804,19 @@ document.querySelector(this.getAttribute('href')).scrollIntoView({
 behavior: 'smooth'
 });
 });
+});
+
+// 移动端菜单控制
+document.getElementById('mobile-menu-button').addEventListener('click', function() {
+  const menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('hidden');
+});
+
+// 点击菜单项后关闭菜单
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.add('hidden');
+  });
 });
 </script>
 </body>
