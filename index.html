@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qianpu Chen - Academic Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=UnifrakturMaguntia&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#1e40af',
+secondary: '#c7d2fe'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+* {
+cursor: url('https://public.readdy.ai/ai/img_res/ef59054d067e480b851ba7f1e22c1be3.jpg'), auto !important;
+}
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.card {
+  background-color: transparent;
+  border: 1px solid #8B0000;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 200px;
+}
+.profile-card {
+transform-style: preserve-3d;
+animation: floatProfile 6s ease-in-out infinite;
+}
+@keyframes floatProfile {
+0%, 100% { transform: translateY(0) rotateZ(-2deg); }
+50% { transform: translateY(-20px) rotateZ(2deg); }
+}
+.card:hover {
+transform: translateY(-5px);
+border-color: #FF0000;
+box-shadow: 0 0 20px rgba(139, 0, 0, 0.2);
+}
+.floating-card {
+--card-color: rgba(220, 38, 38, 0.8);
+}
+.floating-card::after {
+content: attr(data-suit);
+color: var(--card-color);
+}
+.card.flipped {
+transform: rotateY(180deg);
+}
+.card-front, .card-back {
+backface-visibility: hidden;
+position: absolute;
+width: 100%;
+height: 100%;
+}
+.card-back {
+transform: rotateY(180deg);
+}
+.floating-cards {
+position: absolute;
+width: 100%;
+height: 100%;
+pointer-events: none;
+}
+.floating-card {
+position: absolute;
+width: 120px;
+height: 180px;
+background: #fff;
+border-radius: 10px;
+box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+border: 1px solid rgba(0, 0, 0, 0.1);
+animation: float 8s infinite ease-in-out;
+transform-style: preserve-3d;
+font-family: 'UnifrakturMaguntia', serif;
+}
+.floating-card::before {
+content: attr(data-value);
+position: absolute;
+top: 10px;
+left: 10px;
+font-size: 24px;
+color: var(--card-color);
+}
+.floating-card::after {
+content: attr(data-suit);
+position: absolute;
+top: 40px;
+left: 10px;
+font-size: 24px;
+color: var(--card-color);
+}
+@keyframes float {
+0% { transform: translateY(-100%) rotate(0deg) scale(0.8); opacity: 0; }
+5% { opacity: 0.8; }
+25% { transform: translateY(50vh) rotate(180deg) scale(1.2); }
+45% { opacity: 0.8; }
+50% { transform: translateY(100vh) rotate(360deg) scale(0.8); opacity: 0; }
+100% { transform: translateY(100vh) rotate(360deg) scale(0.8); opacity: 0; }
+}
+
+/* Update color scheme */
+:root {
+  --primary-color: #8B0000;
+  --secondary-color: #800000;
+  --background-color: #000000;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.card-front {
+  background-color: rgb(24 24 27); /* zinc-900 */
+  border-radius: 12px;
+  position: absolute;
+  inset: 4px 2px 2px 4px;
+  z-index: 1;
+  padding: 1.5rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card:hover .card-front {
+  inset: 2px 4px 4px 2px;
+  box-shadow: 0 12px 28px rgba(139, 0, 0, 0.3);
+}
+
+/* 为 Skills 部分的卡片添加特殊高度 */
+#skills .card {
+  min-height: 300px; /* 增加高度 */
+}
+
+/* Skills 部分的内容卡片不需要滚动 */
+#skills .card-front {
+  overflow: visible;
+}
+</style>
+</head>
+<body class="bg-black min-h-screen text-[#8B0000]">
+<div class="floating-cards" id="floatingCards"></div>
+<nav class="fixed top-0 w-full bg-black/80 backdrop-blur-sm z-50 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center">
+<a href="#home" class="text-2xl font-['UnifrakturMaguntia'] text-primary">QC</a>
+</div>
+<div class="flex items-center space-x-8">
+<a href="#academic" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Academic</a>
+<a href="#experience" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Experience</a>
+<a href="#honors" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Honors & Awards</a>
+<a href="#skills" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Skills</a>
+<a href="#contact" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Contact</a>
+</div>
+</div>
+</div>
+</nav>
+<main>
+<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+<div class="text-center z-10">
+<h1 class="text-7xl font-['UnifrakturMaguntia'] text-red-500 mb-6 tracking-wider">Qianpu Chen</h1>
+</div>
+</section>
+<section class="py-20 bg-black relative">
+<div class="profile-card w-[300px] h-[420px] bg-white rounded-xl shadow-2xl transform transition-all duration-500 hover:scale-105 mx-auto" style="transform-style: preserve-3d;">
+<div class="w-full h-full relative">
+<img src="images/IMG_1321.JPG"
+class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-xl">
+<h3 class="text-white text-xl font-['UnifrakturMaguntia']">Qianpu Chen</h3>
+</div>
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl font-['UnifrakturMaguntia']">♠</div>
+</div>
+</div>
+</section>
+<section id="academic" class="py-32 relative z-10 bg-black">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-500 mb-12 text-center">Academic Journey</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="card cursor-pointer">
+<div class="card-front p-6">
+<h3 class="text-xl font-semibold mb-4">Master of Computer Science: Data Science</h3>
+<p class="text-gray-600">Leiden University, The Netherlands</p>
+<p class="text-gray-500">2023.09 - 2025.03</p>
+</div>
+</div>
+
+<div class="card cursor-pointer">
+<div class="card-front p-6">
+<h3 class="text-xl font-semibold mb-4">Honours Class Future Foresight</h3>
+<p class="text-gray-600">Leiden University, The Netherlands</p>
+<p class="text-gray-500">2023.10 - 2024.02</p>
+<p class="text-gray-600 mt-2">Grade: 10/10</p>
+</div>
+</div>
+
+<div class="card cursor-pointer">
+<div class="card-front p-6">
+<h3 class="text-xl font-semibold mb-4">Bachelor of Software Engineering</h3>
+<p class="text-gray-600">Tianjin Normal University, China</p>
+<p class="text-gray-500">2020.09 - 2023.06</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="experience" class="py-20 bg-black">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-500 mb-12 text-center">Work Experience</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="card cursor-pointer">
+<div class="card-front bg-zinc-900 p-6 rounded-lg shadow-lg text-[#8B0000]">
+<h3 class="text-xl font-semibold mb-4">Chief Technology Officer</h3>
+<p class="text-gray-600">LUDev, The Netherlands</p>
+<p class="text-gray-500">2024.09 - Present</p>
+</div>
+</div>
+
+<div class="card cursor-pointer">
+<div class="card-front bg-zinc-900 p-6 rounded-lg shadow-lg text-[#8B0000]">
+<h3 class="text-xl font-semibold mb-4">Teaching Assistant</h3>
+<p class="text-gray-600">Leiden University, The Netherlands</p>
+<p class="text-gray-500">2024.02 - Present</p>
+<p class="text-gray-600 mt-2">Software Engineering</p>
+</div>
+</div>
+
+<div class="card cursor-pointer">
+<div class="card-front bg-zinc-900 p-6 rounded-lg shadow-lg text-[#8B0000]">
+<h3 class="text-xl font-semibold mb-4">Teaching Assistant</h3>
+<p class="text-gray-600">Leiden University, The Netherlands</p>
+<p class="text-gray-500">2024.09 - Present</p>
+<p class="text-gray-600 mt-2">Introduction to Deep Learning</p>
+</div>
+</div>
+
+<div class="card cursor-pointer">
+<div class="card-front bg-zinc-900 p-6 rounded-lg shadow-lg text-[#8B0000]">
+<h3 class="text-xl font-semibold mb-4">Research Assistant</h3>
+<p class="text-gray-600">Tianjin Normal University, China</p>
+<p class="text-gray-500">2020.11 - 2023.01</p>
+</div>
+</div>
+
+<div class="card cursor-pointer">
+<div class="card-front bg-zinc-900 p-6 rounded-lg shadow-lg text-[#8B0000]">
+<h3 class="text-xl font-semibold mb-4">Teaching Assistant</h3>
+<p class="text-gray-600">Tianjin Normal University, China</p>
+<p class="text-gray-500">2021.09 - 2022.01</p>
+<p class="text-gray-600 mt-2">Advanced Mathematics</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="honors" class="py-32 relative z-10 bg-black">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-500 mb-12 text-center">Honors & Awards</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-4">
+<i class="ri-trophy-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">Champion of Hack4Her2024</h3>
+</div>
+<p class="text-gray-600">Booking.com track</p>
+<p class="text-gray-500">2024</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-4">
+<i class="ri-medal-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">Outstanding Undergraduate Project</h3>
+</div>
+<p class="text-gray-500">2023</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-4">
+<i class="ri-award-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">Mathematical Contest in Modelling</h3>
+</div>
+<p class="text-gray-600">Second Prize in Tianjin</p>
+<p class="text-gray-500">2022</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-4">
+<i class="ri-medal-2-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">Internet+ Innovation and Entrepreneurship Competition - National Bronze Medal</h3>
+</div>
+<p class="text-gray-500">2021-2022</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-4">
+<i class="ri-medal-2-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">Internet+ Innovation and Entrepreneurship Competition - Tianjin Gold Award</h3>
+</div>
+<p class="text-gray-500">2021-2022</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-4">
+<i class="ri-user-star-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">College-level Merit Student</h3>
+</div>
+<p class="text-gray-500">2021, 2022</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-4">
+<i class="ri-funds-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">University-level Academic Scholarship</h3>
+</div>
+<p class="text-gray-500">2021, 2022</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<section id="skills" class="py-32 relative z-10 bg-black">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-500 mb-12 text-center">Skills</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-6">
+<i class="ri-code-s-slash-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">Programming Languages</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">C/C++</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Java</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Python</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">R</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Swift</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">JavaScript</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">TypeScript</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-6">
+<i class="ri-stack-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">Full Stack Development</h3>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-server-line mr-2"></i>Backend
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Spring Boot</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Spring Cloud</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">MyBatis</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Node.js</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Express</span>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-layout-line mr-2"></i>Frontend
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">React</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Vue</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Next.js</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Tailwind CSS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-6">
+<i class="ri-brain-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">AI & Machine Learning</h3>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-cpu-line mr-2"></i>Deep Learning
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">PyTorch</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">TensorFlow</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">CNNs</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">RNNs</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Transformers</span>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-translate-2 mr-2"></i>NLP
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">BERT</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">GPT</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Hugging Face</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">spaCy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6">
+<div class="flex items-center mb-6">
+<i class="ri-gamepad-line text-2xl text-red-500 mr-3"></i>
+<h3 class="text-xl font-semibold">Game Development & Advanced Computing</h3>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-game-line mr-2"></i>Game Development
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Unity</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Unreal Engine</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Godot</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Game AI</span>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-2 text-red-500 flex items-center">
+<i class="ri-atom-line mr-2"></i>Quantum Computing
+</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Qiskit</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Cirq</span>
+<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Quantum Algorithms</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<section id="interests" class="py-32 relative z-10 bg-black">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-500 mb-12 text-center">Interests</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+<div class="card">
+<div class="card-front p-6 text-center">
+<div class="text-6xl mb-4">🎹</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6 text-center">
+<div class="text-6xl mb-4">🎻</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-front p-6 text-center">
+<div class="text-6xl mb-4">🎨</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-black">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-500 mb-12 text-center">Contact</h2>
+<div class="max-w-2xl mx-auto">
+<div class="card">
+<div class="card-front p-6">
+<div class="space-y-6">
+<div class="flex items-center justify-center">
+<i class="ri-mail-line text-red-500 text-2xl mr-4"></i>
+<a href="mailto:qianpuchen@gmail.com" class="text-gray-300 hover:text-red-500 transition-colors">qianpuchen@gmail.com</a>
+</div>
+
+<div class="flex justify-center space-x-8">
+<a href="https://github.com/CocoChen119" target="_blank" class="text-gray-300 hover:text-red-500 transition-colors">
+<i class="ri-github-fill ri-2x"></i>
+</a>
+<a href="https://www.linkedin.com/in/qianpu-chen-258a62297" target="_blank" class="text-gray-300 hover:text-red-500 transition-colors">
+<i class="ri-linkedin-box-fill ri-2x"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+// Create floating cards
+function createFloatingCards() {
+const container = document.getElementById('floatingCards');
+const suits = ['♠', '♥', '♦', '♣'];
+const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+const colors = {
+'♠': '#000000',
+'♣': '#000000',
+'♥': '#FF0000',
+'♦': '#FF0000'
+};
+for (let i = 0; i < 15; i++) {
+const card = document.createElement('div');
+card.className = 'floating-card';
+card.style.left = `${Math.random() * 100}%`;
+card.style.animationDelay = `${Math.random() * 8}s`;
+card.style.transform = `rotateX(${Math.random() * 360}deg) rotateY(${Math.random() * 360}deg)`;
+const suit = suits[Math.floor(Math.random() * suits.length)];
+const value = values[Math.floor(Math.random() * values.length)];
+const color = colors[suit];
+card.style.setProperty('--card-color', color);
+card.setAttribute('data-suit', suit);
+card.setAttribute('data-value', value);
+container.appendChild(card);
+}
+}
+// Card flip functionality
+document.querySelectorAll('.card').forEach(card => {
+card.addEventListener('click', () => {
+card.classList.toggle('flipped');
+});
+});
+// Parallax effect
+document.addEventListener('mousemove', (e) => {
+  const cards = document.querySelectorAll('.card');
+  const mouseX = e.clientX / window.innerWidth - 0.5;
+  const mouseY = e.clientY / window.innerHeight - 0.5;
+
+  cards.forEach(card => {
+    if (!card.classList.contains('flipped') && !card.matches(':hover')) {
+      const rect = card.getBoundingClientRect();
+      const cardX = rect.left + rect.width / 2;
+      const cardY = rect.top + rect.height / 2;
+      const angleX = (cardY - e.clientY) * 0.01;
+      const angleY = (cardX - e.clientX) * -0.01;
+      card.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+    }
+  });
+});
+// Initialize
+createFloatingCards();
+// Reveal cards on scroll
+const revealCards = () => {
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+const cardTop = card.getBoundingClientRect().top;
+const triggerBottom = window.innerHeight * 0.8;
+if(cardTop < triggerBottom) {
+card.style.opacity = '1';
+card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+} else {
+card.style.opacity = '0';
+card.style.transform = 'translateY(100px) rotateX(-30deg) rotateY(30deg)';
+}
+});
+};
+window.addEventListener('scroll', revealCards);
+revealCards(); // Initial check
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({
+behavior: 'smooth'
+});
+});
+});
+</script>
+</body>
+</html></html>
