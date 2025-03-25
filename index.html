@@ -133,6 +133,7 @@ color: var(--card-color);
   color: var(--primary-color) !important;
 }
 
+/* 统一卡片样式 */
 .card-front {
   background-color: rgb(24 24 27); /* zinc-900 */
   border-radius: 12px;
@@ -148,10 +149,16 @@ color: var(--card-color);
   transition: all 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+/* 更新所有卡片的文字颜色 */
+.card-front h3 {
+  color: #DC2626; /* text-red-500 */
 }
 
+.card-front p {
+  color: #D1D5DB; /* text-gray-300 */
+}
+
+/* 保持悬停效果 */
 .card:hover .card-front {
   inset: 2px 4px 4px 2px;
   box-shadow: 0 12px 28px rgba(139, 0, 0, 0.3);
@@ -373,16 +380,16 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <div class="card-front p-6">
 <div class="flex items-center mb-6">
 <i class="ri-code-s-slash-line text-2xl text-red-500 mr-3"></i>
-<h3 class="text-xl font-semibold">Programming Languages</h3>
+<h3 class="text-xl font-semibold text-red-500">Programming Languages</h3>
 </div>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">C/C++</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Java</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Python</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">R</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Swift</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">JavaScript</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">TypeScript</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">C/C++</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Java</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Python</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">R</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Swift</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">JavaScript</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">TypeScript</span>
 </div>
 </div>
 </div>
@@ -391,7 +398,7 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <div class="card-front p-6">
 <div class="flex items-center mb-6">
 <i class="ri-stack-line text-2xl text-red-500 mr-3"></i>
-<h3 class="text-xl font-semibold">Full Stack Development</h3>
+<h3 class="text-xl font-semibold text-red-500">Full Stack Development</h3>
 </div>
 <div class="space-y-4">
 <div>
@@ -399,11 +406,11 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <i class="ri-server-line mr-2"></i>Backend
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Spring Boot</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Spring Cloud</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">MyBatis</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Node.js</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Express</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Spring Boot</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Spring Cloud</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">MyBatis</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Node.js</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Express</span>
 </div>
 </div>
 <div>
@@ -411,10 +418,10 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <i class="ri-layout-line mr-2"></i>Frontend
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">React</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Vue</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Next.js</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Tailwind CSS</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">React</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Vue</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Next.js</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Tailwind CSS</span>
 </div>
 </div>
 </div>
@@ -425,7 +432,7 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <div class="card-front p-6">
 <div class="flex items-center mb-6">
 <i class="ri-brain-line text-2xl text-red-500 mr-3"></i>
-<h3 class="text-xl font-semibold">AI & Machine Learning</h3>
+<h3 class="text-xl font-semibold text-red-500">AI & Machine Learning</h3>
 </div>
 <div class="space-y-4">
 <div>
@@ -433,11 +440,11 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <i class="ri-cpu-line mr-2"></i>Deep Learning
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">PyTorch</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">TensorFlow</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">CNNs</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">RNNs</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Transformers</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">PyTorch</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">TensorFlow</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">CNNs</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">RNNs</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Transformers</span>
 </div>
 </div>
 <div>
@@ -445,10 +452,10 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <i class="ri-translate-2 mr-2"></i>NLP
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">BERT</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">GPT</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Hugging Face</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">spaCy</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">BERT</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">GPT</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Hugging Face</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">spaCy</span>
 </div>
 </div>
 </div>
@@ -459,7 +466,7 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <div class="card-front p-6">
 <div class="flex items-center mb-6">
 <i class="ri-gamepad-line text-2xl text-red-500 mr-3"></i>
-<h3 class="text-xl font-semibold">Game Development & Advanced Computing</h3>
+<h3 class="text-xl font-semibold text-red-500">Game Development & Advanced Computing</h3>
 </div>
 <div class="space-y-4">
 <div>
@@ -467,10 +474,10 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <i class="ri-game-line mr-2"></i>Game Development
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Unity</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Unreal Engine</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Godot</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Game AI</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Unity</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Unreal Engine</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Godot</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Game AI</span>
 </div>
 </div>
 <div>
@@ -478,9 +485,9 @@ class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
 <i class="ri-atom-line mr-2"></i>Quantum Computing
 </h4>
 <div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Qiskit</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Cirq</span>
-<span class="px-3 py-1 bg-red-900/20 text-red-500 rounded-full hover:bg-red-900/30 transition-colors">Quantum Algorithms</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Qiskit</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Cirq</span>
+<span class="px-3 py-1 bg-red-900/20 text-gray-300 rounded-full hover:bg-red-900/30 transition-colors">Quantum Algorithms</span>
 </div>
 </div>
 </div>
