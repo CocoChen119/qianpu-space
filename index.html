@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital@0;1&family=Source+Code+Pro:wght@400;500&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
@@ -344,6 +344,124 @@ section {
   scroll-margin-top: 4rem;
   position: relative;
 }
+
+/* 关键词样式 */
+.keyword-item {
+  font-family: 'Cinzel', serif;
+  color: rgba(220, 38, 38, 0.2); /* 改用红色，增加透明度 */
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  white-space: nowrap;
+  animation: fadeInFloat 2s ease-out forwards;
+  opacity: 0;
+  transform-origin: center;
+  text-shadow: 0 0 15px rgba(220, 38, 38, 0.1);
+  transition: all 0.5s ease;
+  z-index: 5; /* 确保在照片下方但可见 */
+}
+
+.keyword-item:hover {
+  color: rgba(220, 38, 38, 0.4);
+  text-shadow: 0 0 20px rgba(220, 38, 38, 0.2);
+}
+
+/* 为每个关键词设置不同的动画延迟 */
+.keyword-item:nth-child(1) {
+  animation-delay: 0.1s;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.keyword-item:nth-child(2) {
+  animation-delay: 0.3s;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.keyword-item:nth-child(3) {
+  animation-delay: 0.5s;
+  color: rgba(255, 220, 220, 0.35);
+}
+
+.keyword-item:nth-child(4) {
+  animation-delay: 0.7s;
+  color: rgba(255, 200, 200, 0.35);
+}
+
+.keyword-item:nth-child(5) {
+  animation-delay: 0.9s;
+  color: rgba(255, 180, 180, 0.35);
+}
+
+.keyword-item:nth-child(6) {
+  animation-delay: 1.1s;
+  color: rgba(255, 160, 160, 0.35);
+}
+
+.keyword-item:nth-child(7) {
+  animation-delay: 1.3s;
+  color: rgba(255, 140, 140, 0.35);
+}
+
+.keyword-item:nth-child(8) {
+  animation-delay: 1.5s;
+  color: rgba(255, 120, 120, 0.35);
+}
+
+.keyword-item:nth-child(9) {
+  animation-delay: 1.7s;
+  color: rgba(255, 100, 100, 0.35);
+}
+
+.keyword-item:nth-child(10) {
+  animation-delay: 1.9s;
+  color: rgba(220, 38, 38, 0.35);
+}
+
+@keyframes fadeInFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .floating-keywords {
+    display: none; /* 在移动端隐藏关键词 */
+  }
+}
+
+.floating-keywords {
+  /* 删除 border: 1px solid red; */
+}
+
+.keyword-item {
+  /* 删除 background-color */
+}
+
+/* 增加文字发光效果 */
+.keyword-item {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* 更新悬停效果，使其更明显 */
+.keyword-item:hover {
+  color: rgba(220, 38, 38, 0.6) !important;  /* 增加悬停时的可见度 */
+  text-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+/* 为新增的关键词添加动画延迟和颜色 */
+.keyword-item:nth-child(11) {
+  animation-delay: 2.1s;
+  color: rgba(255, 80, 80, 0.35);
+}
+
+.keyword-item:nth-child(12) {
+  animation-delay: 2.3s;
+  color: rgba(255, 60, 60, 0.35);
+}
 </style>
 </head>
 <body class="bg-black min-h-screen text-[#8B0000]">
@@ -362,6 +480,7 @@ section {
 </div>
 <!-- 桌面端导航 -->
 <div class="hidden md:flex items-center space-x-8">
+<a href="#about" class="nav-link text-gray-300 hover:text-red-500 transition-colors">About</a>
 <a href="#academic" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Academic</a>
 <a href="#experience" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Experience</a>
 <a href="#honors" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Honors & Awards</a>
@@ -375,6 +494,7 @@ section {
 <!-- 移动端菜单 -->
 <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-sm">
 <div class="px-4 pt-2 pb-3 space-y-2">
+<a href="#about" class="block text-gray-300 hover:text-red-500 transition-colors py-2">About</a>
 <a href="#academic" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Academic</a>
 <a href="#experience" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Experience</a>
 <a href="#honors" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Honors & Awards</a>
@@ -398,17 +518,69 @@ section {
 </div>
 </div>
 </section>
-<section class="py-20 bg-black relative">
-<div class="profile-card w-[300px] h-[420px] bg-white rounded-xl shadow-2xl transform transition-all duration-500 hover:scale-105 mx-auto" style="transform-style: preserve-3d;">
-<div class="w-full h-full relative">
-<img src="images/IMG_1321.JPG"
-class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
-<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-xl">
-<h3 class="text-white text-xl font-['UnifrakturMaguntia']">Qianpu Chen</h3>
-</div>
-<div class="absolute -top-4 -right-4 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl font-['UnifrakturMaguntia']">♠</div>
-</div>
-</div>
+<section id="about" class="py-20 bg-black relative min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+      <!-- 左侧照片 -->
+      <div class="md:w-1/2">
+        <div class="profile-card w-[300px] h-[420px] bg-white rounded-xl shadow-2xl transform transition-all duration-500 hover:scale-105 mx-auto" style="transform-style: preserve-3d;">
+          <div class="w-full h-full relative">
+            <img src="images/IMG_1321.JPG"
+            class="w-full h-full object-cover rounded-xl" alt="Qianpu Chen">
+            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-xl">
+              <h3 class="text-white text-xl font-['UnifrakturMaguntia']">Qianpu Chen</h3>
+            </div>
+            <div class="absolute -top-4 -right-4 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl font-['UnifrakturMaguntia']">♠</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧文字 -->
+      <div class="md:w-1/2 space-y-8">
+        <div class="space-y-4">
+          <h2 class="text-2xl md:text-3xl text-gray-200">
+            👋 Hi, I'm Qianpu —
+          </h2>
+          <div class="space-y-2">
+            <span class="inline-block font-['Cinzel'] text-red-400 hover:text-red-300 transition-colors">an AI researcher</span>
+            <span class="text-gray-400">/</span>
+            <span class="inline-block font-['Cinzel'] text-blue-400 hover:text-blue-300 transition-colors">full-stack developer</span>
+            <span class="text-gray-400">/</span>
+            <span class="inline-block font-['Cinzel'] text-purple-400 hover:text-purple-300 transition-colors">CTO</span>
+            <span class="text-gray-400">/</span>
+            <span class="inline-block font-['Cinzel'] text-amber-400 hover:text-amber-300 transition-colors">violin concertmaster</span>
+            <span class="text-gray-400">/</span>
+            <span class="inline-block font-['Cinzel'] text-emerald-400 hover:text-emerald-300 transition-colors">illustrator</span>
+          </div>
+        </div>
+
+        <p class="text-gray-300 text-lg italic">
+          I build in the space between rigor and imagination — where code, theory, and art intertwine.
+        </p>
+
+        <div class="space-y-4">
+          <h3 class="text-xl text-red-500 font-['Cinzel']">Research Interests</h3>
+          <div class="flex flex-wrap gap-4">
+            <span class="inline-flex items-center font-['Source_Code_Pro'] text-yellow-400 hover:text-yellow-300 transition-colors">
+              🎲 Game Theory
+            </span>
+            <span class="inline-flex items-center font-['Source_Code_Pro'] text-blue-400 hover:text-blue-300 transition-colors">
+              🤖 Reinforcement Learning
+            </span>
+            <span class="inline-flex items-center font-['Source_Code_Pro'] text-green-400 hover:text-green-300 transition-colors">
+              📈 Optimization
+            </span>
+            <span class="inline-flex items-center font-['Source_Code_Pro'] text-purple-400 hover:text-purple-300 transition-colors">
+              🕸️ Graph Theory
+            </span>
+            <span class="inline-flex items-center font-['Source_Code_Pro'] text-red-400 hover:text-red-300 transition-colors">
+              🧩 Software Engineering
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <section id="academic" class="py-32 relative z-10 bg-black">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -933,6 +1105,15 @@ document.addEventListener('click', function(e) {
   if (!menu.contains(e.target) && !button.contains(e.target) && !menu.classList.contains('hidden')) {
     menu.classList.add('hidden');
   }
+});
+
+// 添加随机浮动动画
+document.querySelectorAll('.keyword-item').forEach(keyword => {
+  setInterval(() => {
+    const randomY = (Math.random() - 0.5) * 10;
+    const randomRotate = (Math.random() - 0.5) * 5;
+    keyword.style.transform = `translateY(${randomY}px) rotate(${keyword.dataset.baseRotate + randomRotate}deg)`;
+  }, 3000);
 });
 </script>
 </body>
