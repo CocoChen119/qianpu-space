@@ -244,6 +244,63 @@ color: var(--card-color);
     padding: 0.25rem 0.5rem;
     white-space: nowrap;
   }
+  
+  /* Skill badge with icon styling */
+  .skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(127, 29, 29, 0.2);
+    color: rgb(209, 213, 219);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 1px solid rgba(220, 38, 38, 0.3);
+  }
+  
+  .skill-badge:hover {
+    background: rgba(127, 29, 29, 0.4);
+    border-color: rgba(220, 38, 38, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  }
+  
+  .skill-icon {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    object-fit: contain;
+    filter: brightness(0.9);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .skill-badge:hover .skill-icon {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+  }
+  
+  .skill-badge span {
+    font-size: 0.875rem;
+  }
+  
+  @media (max-width: 768px) {
+    .skill-badge {
+      font-size: 0.75rem;
+      padding: 0.375rem 0.625rem;
+    }
+    
+    .skill-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
 
   /* 确保卡片内容不会重叠 */
   #skills .card-front h3 {
