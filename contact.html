@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Qianpu Chen</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital@0;1&family=Source+Code+Pro:wght@400;500&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+body {
+  background: #000000;
+  color: #D1D5DB;
+}
+
+.card {
+  background-color: transparent;
+  border: 1px solid #8B0000;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: auto;
+  height: auto;
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #FF0000;
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.2);
+}
+
+.card-front {
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+  position: relative;
+  inset: 4px 2px 2px 4px;
+  padding: 1.5rem;
+  background-color: rgb(24 24 27);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.card:hover .card-front {
+  inset: 2px 4px 4px 2px;
+  box-shadow: 0 12px 28px rgba(139, 0, 0, 0.3);
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+</style>
+</head>
+<body class="bg-black min-h-screen">
+<nav class="fixed top-0 w-full bg-black/80 backdrop-blur-sm z-50 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center">
+<a href="index.html" class="text-xl font-['UnifrakturMaguntia'] text-red-500">Qianpu Chen</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="index.html#home" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Home</a>
+<a href="index.html#academic" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Academic</a>
+<a href="index.html#experience" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Experience</a>
+<a href="index.html#honors" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Honors & Awards</a>
+<a href="index.html#skills" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Skills</a>
+<a href="index.html#interests" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Interests</a>
+<a href="index.html#fragments" class="nav-link text-gray-300 hover:text-red-500 transition-colors">Fragments</a>
+<a href="contact.html" class="nav-link text-red-500">Contact</a>
+</div>
+</div>
+</div>
+</nav>
+
+<main class="pt-20">
+<section id="contact" class="py-32 bg-black min-h-screen flex items-center">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+<h2 class="text-4xl font-['UnifrakturMaguntia'] text-red-500 mb-12 text-center">Contact</h2>
+<div class="max-w-2xl mx-auto">
+<div class="card">
+<div class="card-front p-6">
+<div class="space-y-6">
+<div class="flex items-center justify-center">
+<i class="ri-mail-line text-red-500 text-2xl mr-4"></i>
+<a href="mailto:qianpuchen@gmail.com" class="text-gray-300 hover:text-red-500 transition-colors">qianpuchen@gmail.com</a>
+</div>
+
+<div class="flex justify-center space-x-8">
+<a href="https://github.com/CocoChen119" target="_blank" class="text-gray-300 hover:text-red-500 transition-colors">
+<i class="ri-github-fill ri-2x"></i>
+</a>
+<a href="https://www.linkedin.com/in/qianpu-chen-258a62297" target="_blank" class="text-gray-300 hover:text-red-500 transition-colors">
+<i class="ri-linkedin-box-fill ri-2x"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>
+

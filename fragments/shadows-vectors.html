@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadows and Vectors - Fragments | Qianpu Chen</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital@0;1&family=Source+Code+Pro:wght@400;500&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+* {
+  cursor: url('https://public.readdy.ai/ai/img_res/ef59054d067e480b851ba7f1e22c1be3.jpg'), auto !important;
+}
+
+body {
+  background: #000000;
+  color: #D1D5DB;
+}
+
+/* Vintage Essay Styles */
+.essay-content {
+  background: linear-gradient(135deg, 
+    #1a1a1a 0%,
+    #0f0f0f 50%,
+    #1a1a1a 100%
+  );
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #8B0000 #1a1a1a;
+}
+
+.essay-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.essay-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.essay-content::-webkit-scrollbar-thumb {
+  background: #8B0000;
+  border-radius: 4px;
+}
+
+.essay-content::-webkit-scrollbar-thumb:hover {
+  background: #FF0000;
+}
+
+.essay-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 0, 0, 0.03) 2px,
+      rgba(139, 0, 0, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 0, 0, 0.03) 2px,
+      rgba(139, 0, 0, 0.03) 4px
+    );
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.essay-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+.essay-quote {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-style: normal;
+  font-size: 1.8rem;
+  line-height: 1.8;
+  color: #f4e4bc;
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-left: 4px solid #8B0000;
+  border-right: 4px solid #8B0000;
+  background: linear-gradient(135deg, 
+    rgba(139, 0, 0, 0.1) 0%,
+    rgba(139, 0, 0, 0.05) 50%,
+    rgba(139, 0, 0, 0.1) 100%
+  );
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.essay-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #8B0000;
+  opacity: 0.3;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+.essay-quote::after {
+  content: '"';
+  font-size: 4rem;
+  color: #8B0000;
+  opacity: 0.3;
+  position: absolute;
+  bottom: -30px;
+  right: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+.essay-quote-author {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #9CA3AF;
+  font-style: normal;
+  text-align: right;
+}
+
+.essay-body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #D1D5DB;
+  text-align: justify;
+  margin: 2rem 0;
+}
+
+.essay-body strong {
+  color: #F4E4BC;
+  font-weight: 600;
+}
+
+.essay-body .highlight-yellow {
+  color: #F5E6D3;
+  font-weight: 500;
+}
+
+.essay-body em {
+  color: #D1D5DB;
+  font-style: italic;
+}
+
+.essay-signature {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #9CA3AF;
+  text-align: right;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(139, 0, 0, 0.3);
+  font-style: italic;
+}
+
+.essay-body p {
+  margin-bottom: 1.5rem;
+  text-indent: 2em;
+  letter-spacing: 0.3px;
+}
+
+.essay-body p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+  color: #9CA3AF;
+}
+
+.essay-body p:first-of-type {
+  text-indent: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.essay-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: #DC2626;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+.essay-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  display: block;
+  border: 2px solid #8B0000;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(139, 0, 0, 0.1);
+  filter: sepia(0.2) contrast(1.1);
+}
+
+@media (max-width: 768px) {
+  .essay-title {
+    font-size: 1.75rem;
+  }
+
+  .essay-quote {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+  }
+
+  .essay-body {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .essay-body p {
+    text-indent: 1.5em;
+  }
+
+  .essay-image {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+<body class="bg-black min-h-screen">
+<nav class="fixed top-0 w-full bg-black/80 backdrop-blur-sm z-50 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center">
+<a href="../index.html" class="text-2xl font-['UnifrakturMaguntia'] text-red-500">QC</a>
+</div>
+<div class="flex items-center space-x-4">
+<a href="../index.html#fragments" class="text-gray-300 hover:text-red-500 transition-colors font-['Cinzel']">← Back to Fragments</a>
+</div>
+</div>
+</div>
+</nav>
+
+<main class="pt-20 pb-20">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-black border-2 border-red-900/50 rounded-lg overflow-y-auto essay-content">
+<div class="p-8 md:p-12">
+<h1 class="essay-title">Shadows and Vectors</h1>
+
+<div class="essay-quote">
+  We had the experience but missed the meaning.
+  <span class="essay-quote-author">— T. S. Eliot</span>
+</div>
+
+<div class="essay-body">
+  <p>Machine learning is often introduced through many different entry points. Some accounts begin with artificial neurons and early attempts to mimic the brain. Others start from linear algebra, constructing the field from vectors, matrices, and optimization. Still others frame intelligence through probability, describing learning as inference under uncertainty.</p>
+
+  <p>At first these appear to be different stories about the same field. Different doors into the same building.</p>
+
+  <p>Yet after some time a curious realization emerges. The building itself is not as large as it first appears.</p>
+
+  <p>No matter where the story begins, whether with neurons, statistics, information theory, or optimization, it eventually circles back to a small set of recurring ideas: <em>representation, projection, and the search for structure in high-dimensional space</em>.</p>
+
+  <p>When trying to assemble these fragments into a coherent architecture, one begins to suspect that the story of artificial intelligence might not truly begin with neurons, or even with mathematics.</p>
+
+  <p><span class="highlight-yellow">Perhaps it should begin with Plato.</span></p>
+
+  <img src="../Platon_Cave_Sanraedam_1604.jpg" alt="Plato's Cave" class="essay-image">
+
+  <p>In Plato's allegory of the cave, prisoners are chained inside a cave and can see only the wall before them. Behind them burns a fire, and between the fire and the prisoners objects are carried. The shadows of these objects are projected onto the wall. Having never seen anything else, the prisoners take these shadows to be the real world.</p>
+
+  <p>The allegory is usually read as a story about knowledge and illusion. For someone working in machine learning, however, it begins to look strikingly familiar.</p>
+
+  <p>In a technical sense, this is precisely what we do.</p>
+
+  <p>We call it <span class="highlight-yellow">projection</span>.</p>
+
+  <p>The world we attempt to model is impossibly complex, high-dimensional, continuous, and far beyond the capacity of any finite representation. What we actually observe are fragments, signals, and shadows: pixels in an image, tokens in a sentence, measurements in a dataset. From these shadows we attempt to reconstruct structure.</p>
+
+  <p>Our models learn functions that map these observations into vectors, points in abstract spaces where similarity, meaning, and relationships can be computed.</p>
+
+  <p>If we are ambitious, we hope that somewhere in that space there exists a vector, or a set of vectors, capable of representing the world as we understand it.</p>
+
+  <p>A single representation that captures the structure of everything we can imagine.</p>
+
+  <p><em>Everything we can imagine.</em></p>
+
+  <p>This phrase matters. Imagination marks the boundary of the space we are able to model. The vectors we search for do not represent the world itself, but the world as it appears within the limits of our perception and abstraction.</p>
+
+  <p>In this sense machine learning is not merely a technology. <em>It is a continuation of a much older philosophical problem.</em> It concerns how beings with limited senses and finite representations attempt to infer the structure of a reality they never directly observe.</p>
+
+  <p>There is undeniable beauty in the projection world. Linear algebra provides a language for manipulating shadows. Optimization offers procedures for refining them. Neural networks construct increasingly complex transformations of these projections.</p>
+
+  <p>Yet there is also something quietly unsettling about this framework.</p>
+
+  <p>Once we recognize that our models operate entirely within the space of projections, a question inevitably appears.</p>
+
+  <p><em>Are we learning about the world itself, or only about the structure of the shadows we have already seen?</em></p>
+
+  <p>Artists have long understood this ambiguity. A painting is not the world but a projection of it through perception and interpretation. Literature does not reproduce reality but rearranges fragments of experience into patterns that feel meaningful.</p>
+
+  <p>Machine learning, in its own way, performs a similar act. It compresses the world into representations, searching for patterns that allow us to predict which shadow may appear next.</p>
+
+  <p>Perhaps Eliot's line captures the tension better than any technical description.</p>
+
+  <p>We have the experience: oceans of data, billions of parameters, and models capable of generating images, text, and sound with astonishing fidelity.</p>
+
+  <p>And yet the meaning still seems to elude us.</p>
+
+  <p><em>The shadows grow sharper.</em></p>
+  <p><span class="highlight-yellow">But the cave remains.</span></p>
+</div>
+
+<div class="essay-signature">qianpu, 7 maart 2026, Utrecht</div>
+</div>
+</div>
+</div>
+</main>
+</body>
+</html>
+
