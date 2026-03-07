@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To see a world in a grain of sand - Fragments | Qianpu Chen</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital@0;1&family=Source+Code+Pro:wght@400;500&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+* {
+  cursor: url('https://public.readdy.ai/ai/img_res/ef59054d067e480b851ba7f1e22c1be3.jpg'), auto !important;
+}
+
+body {
+  background: #000000;
+  color: #D1D5DB;
+}
+
+/* Vintage Essay Styles */
+.essay-content {
+  background: linear-gradient(135deg, 
+    #1a1a1a 0%,
+    #0f0f0f 50%,
+    #1a1a1a 100%
+  );
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #8B0000 #1a1a1a;
+}
+
+.essay-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.essay-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.essay-content::-webkit-scrollbar-thumb {
+  background: #8B0000;
+  border-radius: 4px;
+}
+
+.essay-content::-webkit-scrollbar-thumb:hover {
+  background: #FF0000;
+}
+
+.essay-quote {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: 2rem;
+  line-height: 1.4;
+  color: #DC2626;
+  text-align: center;
+  margin: 3rem 0;
+  padding: 2rem;
+  border-top: 2px solid rgba(220, 38, 38, 0.3);
+  border-bottom: 2px solid rgba(220, 38, 38, 0.3);
+  position: relative;
+}
+
+.essay-quote::before {
+  content: '"';
+  font-size: 4rem;
+  position: absolute;
+  top: -1rem;
+  left: 1rem;
+  color: rgba(220, 38, 38, 0.2);
+}
+
+.essay-quote::after {
+  content: '"';
+  font-size: 4rem;
+  position: absolute;
+  bottom: -2rem;
+  right: 1rem;
+  color: rgba(220, 38, 38, 0.2);
+}
+
+.essay-body {
+  font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #E5E7EB;
+  text-indent: 2rem;
+}
+
+.essay-body p {
+  margin-bottom: 1.5rem;
+}
+
+.essay-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  color: #DC2626;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.essay-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  display: block;
+  border: 2px solid rgba(220, 38, 38, 0.3);
+  filter: sepia(20%) contrast(1.1) brightness(0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.essay-signature {
+  font-family: 'Cinzel', serif;
+  text-align: right;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(220, 38, 38, 0.2);
+  color: #9CA3AF;
+  font-size: 0.9rem;
+}
+
+.essay-divider {
+  text-align: center;
+  margin: 3rem 0;
+  color: rgba(220, 38, 38, 0.5);
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+}
+
+nav {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.nav-link {
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #DC2626;
+}
+
+@media (max-width: 768px) {
+  .essay-title {
+    font-size: 2rem;
+  }
+  
+  .essay-quote {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .essay-body {
+    font-size: 1rem;
+    text-indent: 1.5rem;
+  }
+}
+</style>
+</head>
+<body>
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<a href="../index.html" class="text-xl font-['Cinzel'] text-red-600 hover:text-red-500 transition-colors">qianpu</a>
+<div class="hidden md:flex space-x-6">
+<a href="../index.html#home" class="nav-link text-gray-300">Home</a>
+<a href="../index.html#academic" class="nav-link text-gray-300">Academic</a>
+<a href="../index.html#experience" class="nav-link text-gray-300">Experience</a>
+<a href="../index.html#skills" class="nav-link text-gray-300">Skills</a>
+<a href="../index.html#honors" class="nav-link text-gray-300">Honors</a>
+<a href="../index.html#interests" class="nav-link text-gray-300">Interests</a>
+<a href="../index.html#fragments" class="nav-link text-gray-300">Fragments</a>
+<a href="contact.html" class="nav-link text-gray-300">Contact</a>
+</div>
+<button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-red-500">
+<i class="ri-menu-line text-2xl"></i>
+</button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+<a href="../index.html#home" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Home</a>
+<a href="../index.html#academic" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Academic</a>
+<a href="../index.html#experience" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Experience</a>
+<a href="../index.html#skills" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Skills</a>
+<a href="../index.html#honors" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Honors</a>
+<a href="../index.html#interests" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Interests</a>
+<a href="../index.html#fragments" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Fragments</a>
+<a href="contact.html" class="block text-gray-300 hover:text-red-500 transition-colors py-2">Contact</a>
+</div>
+</nav>
+
+<main class="pt-24">
+<div class="max-w-4xl mx-auto px-4 py-12 essay-content">
+<div class="p-8 md:p-12">
+<h1 class="essay-title">To see a world in a grain of sand.</h1>
+
+<div class="essay-quote">— William Blake</div>
+
+<img src="../pca.png" alt="PCA" class="essay-image">
+
+<div class="essay-body">
+  <p>Reality seems to enjoy excess. Pixels, tokens, frequencies, variables. Every dataset arrives swollen with dimensions, as if the universe believes that the more coordinates it provides, the more impressive it will look. Machine learning is less sentimental. It spends a great deal of its time trying to quietly remove most of them.</p>
+
+  <p>This activity is known, somewhat politely, as dimensionality reduction.</p>
+
+  <p>The idea is simple. Our observations often appear in enormous dimensional spaces, but the meaningful structure inside them is usually much smaller. An image may contain millions of pixels, yet not every possible arrangement of those pixels corresponds to something that could plausibly occur in the world. Language offers another example. The space of all possible sentences is astronomically large, but human language occupies only a tiny, structured corner of it. Real data tends to gather along thin surfaces hidden inside vast mathematical spaces.</p>
+
+  <p>Dimensionality reduction is the attempt to discover those surfaces and ignore the rest.</p>
+
+  <p>Algorithms do this with varying degrees of elegance. PCA rotates the coordinate system until most variation collapses into a few directions. Autoencoders force observations through narrow internal bottlenecks and hope that whatever survives must have been important. Modern embedding models translate images, sounds, and sentences into vectors where distance quietly becomes meaning. The official explanation is that we compress data while preserving structure. In practice, we make a bold assumption that the world contains far less independent variation than it initially pretends to.</p>
+
+  <p>Surprisingly often, this assumption turns out to be correct. The world seems to enjoy hiding its complexity behind relatively small numbers of governing patterns. Planetary motion reduces to a few parameters. Physical laws compress oceans of observation into short equations. Even perception behaves this way. The visual system receives millions of signals from the retina and calmly summarizes them as objects, faces, and movement. It performs dimensionality reduction with a confidence that modern machine learning systems can only admire.</p>
+
+  <p>Human thinking does the same thing constantly. Faced with overwhelming detail, the mind selects a few dimensions that appear meaningful and ignores everything else. Psychologists call these structures schemas or categories. In daily life we simply call them understanding. They are extremely useful. They are also occasionally wrong. Dimensionality reduction can produce both insight and stereotype. The technique itself remains innocent.</p>
+
+  <p>Cultures perform their own versions of this compression. Western intellectual traditions have often favored classification. Aristotle divided the world into categories and species. Later scientific traditions continued this habit by searching for clear definitions and discrete types. Complexity becomes manageable when the right categories are found.</p>
+
+  <p>Chinese philosophical traditions approached the problem differently. Rather than dividing the world into fixed classes, many classical frameworks describe reality through dynamic relations. Yin and yang compress the enormous diversity of natural phenomena into two interacting tendencies. Darkness and light, stillness and motion, contraction and expansion. The world becomes intelligible through balance rather than taxonomy. It is another way of reducing dimensions.</p>
+
+  <p>Seen from this perspective, dimensionality reduction begins to look less like a technical trick and more like a fundamental strategy of intelligence. Science does it when it writes equations. Perception does it when it recognizes a face. Culture does it when it organizes the world through symbols and principles. Machine learning merely implements the same habit in code.</p>
+
+  <p>Personally, I find something strangely beautiful about this. The world appears impossibly complicated at first glance, filled with more variation than any mind or machine could hope to grasp. And yet again and again we discover that beneath the noise lie only a few dimensions that truly matter.</p>
+
+  <p>Understanding, in the end, may simply be the moment when we realize how much of the world can be safely ignored.</p>
+
+  <div class="essay-signature">
+    qianpu, 7 maart 2026, Utrecht
+  </div>
+</div>
+</div>
+</div>
+</main>
+
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+</script>
+</body>
+</html>
+
