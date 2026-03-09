@@ -950,7 +950,7 @@ section {
 }
 
 .essay-card {
-  min-height: 400px;
+  min-height: 320px;
   text-decoration: none;
   color: inherit;
   display: block;
@@ -981,6 +981,39 @@ section {
 
 .essay-card:hover .card-front img {
   transform: scale(1.05);
+}
+
+/* Fragments 预览卡片整体缩小一些 */
+#fragments .essay-card .card-front h3 {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #fragments .essay-card .card-front h3 {
+    font-size: 1.75rem;
+  }
+}
+
+#fragments .essay-card .card-front p {
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  #fragments .essay-card .card-front p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #fragments .essay-card img {
+    min-height: 200px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #fragments .essay-card img {
+    min-height: 260px !important;
+  }
 }
 
 /* 移动端Essay样式 */
